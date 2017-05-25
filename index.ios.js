@@ -20,6 +20,7 @@ import EngineerEdit from './app/engineer/engineeredit'
 import ManagerEdit from './app/manager/manageredit'
 import SenderRoot from './app/sender/senderroot'
 import AvailiableList from './app/sender/availablelist'
+import MessageList from './app/sender/messagelist'
 
 const SimpleApp = StackNavigator({
     Login: { screen: Login },
@@ -29,6 +30,7 @@ const SimpleApp = StackNavigator({
     EngineerEdit:{screen:EngineerEdit},
     SenderRoot:{screen:SenderRoot},
     AvailiableList:{screen:AvailiableList},
+    MessageList:{screen:MessageList},
 });
 
 AppRegistry.registerComponent('maintenance', () => SimpleApp);
