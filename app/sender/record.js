@@ -28,6 +28,9 @@ class OrderCell extends Component{
                     <Text>取消任务</Text>
                 </View>
             </View>
+            <View>
+                <Image/>
+            </View>
         </View>
     }
 }
