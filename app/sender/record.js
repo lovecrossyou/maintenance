@@ -7,10 +7,12 @@ import {
     View,
     TouchableOpacity,
     Image,
-    ScrollView
+    ScrollView,
+    PixelRatio
 } from 'react-native';
 import ItemTabBar from '../component/itemtabbar'
 var ScrollableTabView = require('react-native-scrollable-tab-view');
+const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2670750920,766573320&fm=23&gp=0.jpg'
 
 class OrderCell extends Component{
     render(){
@@ -28,8 +30,21 @@ class OrderCell extends Component{
                     <Text>取消任务</Text>
                 </View>
             </View>
-            <View>
-                <Image/>
+            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                <View style={{padding:10,flexDirection:'row',alignItems:'center'}}>
+                    <Image source={{uri:imgUrl}} style={styles.logo}/>
+                    <View style={{paddingLeft:10}}>
+                        <Text>预计到达时间: 2016-09-20 16:30</Text>
+                        <Text>隔壁老王</Text>
+                    </View>
+                </View>
+                <View style={[styles.border,styles.center,{marginRight:10,height:20,padding:5}]}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                        }}>
+                        <Text style={{fontSize:12,color:'#4964ef'}}>呼叫</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     }
@@ -77,4 +92,27 @@ export default class Record extends Component{
             </View>
         );
     }
+}
+
+
+const styles = {
+    bg:{
+        backgroundColor:'#f5f5f5'
+    },
+    flex:{
+        flex:1
+    },
+    center:{
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    logo:{
+        width:30,
+        height:30,
+        borderRadius:15
+    },
+    border: {
+        borderWidth: 1 / PixelRatio.get(),
+        borderColor: '#4964ef'
+    },
 }
