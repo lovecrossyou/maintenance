@@ -15,10 +15,10 @@ const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=267075
 class MessageCell extends Component{
     render(){
         return <TouchableOpacity style={[{backgroundColor:'#fff'},styles.borderBottom]}>
-            <View style={[{justifyContent:'center',alignItems:'center',paddingVertical:10}]}>
-                <Text style={{fontSize:10,color:'gray'}}>08-22 12：15</Text>
+            <View style={[{justifyContent:'center',alignItems:'center',paddingVertical:5}]}>
+                <Text style={{fontSize:9,color:'gray',backgroundColor:'#f5f5f5',padding:2}}>08-22 12：15</Text>
             </View>
-            <View style={{padding:10,flexDirection:'row',alignItems:'center'}}>
+            <View style={{paddingVertical:10,flexDirection:'row',alignItems:'center'}}>
                 <Image source={{uri:imgUrl}} style={styles.logo}/>
                 <View style={{marginLeft:10,marginRight:30}}>
                     <Text>单号R201703250020已受理</Text>

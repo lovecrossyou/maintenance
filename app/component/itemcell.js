@@ -29,21 +29,22 @@ export default class ItemCell extends Component{
             <TouchableOpacity
                 activeOpacity={1}
                 onPress={callback}
-                style={[{flexDirection:'row',backgroundColor:'#fff',justifyContent:'space-between'},styles.borderBottom]}>
-                <View style={{marginVertical:10}}>
+                style={[{flexDirection:'row',backgroundColor:'#fff',justifyContent:'space-between',alignItems:'center'},styles.borderBottom]}>
+                <View style={{paddingTop:15,paddingHorizontal:10}}>
                     <View style={{flexDirection:'row',alignItems:'center'}}>
                         {
                             this._leftIcon()
                         }
                         <Text style={styles.content}>{name}</Text>
                     </View>
-                </View>
-                <View style={{alignItems:'center',justifyContent:'center',paddingRight:10}}>
-                    <View style={{flexDirection:'row',alignItems:'center'}}>
-                        <Text style={styles.content}>{desc}</Text>
-                        <Text style={styles.content}></Text>
+                    <View style={{alignItems:'center',justifyContent:'center',paddingRight:10}}>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={styles.content}>{desc}</Text>
+                            <Text style={styles.content}></Text>
+                        </View>
                     </View>
                 </View>
+                <Image source={require('../../assets/com/right_arrow.png')} style={{width:7,height:14,marginRight:10}}/>
             </TouchableOpacity>
         </View>
     }
@@ -59,7 +60,6 @@ const styles = {
         fontSize:14,
         fontWeight:'300',
         color:'gray',
-        paddingHorizontal:10
     },
     borderBottom:{
         borderBottomColor:'#f5f5f5',
