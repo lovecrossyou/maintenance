@@ -12,6 +12,7 @@ import {
     ScrollView
 } from 'react-native';
 import SenderRoot from '../sender/senderroot'
+import ManagerRoot from '../manager/managerroot'
 
 
 const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2670750920,766573320&fm=23&gp=0.jpg'
@@ -63,7 +64,7 @@ export default class Login extends Component{
                                 navigate('SenderRoot',{title:'发单'})
                             }
                             else if(username=='2'){
-
+                                navigate('ManagerRoot',{title:'派单'})
                             }
                             else {
 
