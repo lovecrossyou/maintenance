@@ -49,7 +49,7 @@ class TakeOrderCell extends Component{
             <View>
                 <View style={styles.row}>
                     <Text>【{type}】</Text>
-                    <Text>{title}</Text>
+                    <Text style={{color:'gray'}}>{title}</Text>
                 </View>
                 <View style={{paddingVertical:5,paddingHorizontal:10}}>
                     <Text style={styles.text}>{addr}</Text>
@@ -65,7 +65,7 @@ class TakeOrderCell extends Component{
             </View>
             <View style={styles.center}>
                 <Text style={{fontWeight:'300',fontSize:20}}>抢</Text>
-                <Text>12:00</Text>
+                <Text style={{fontSize:10,fontWeight:'100',color:'gray',paddingVertical:5}}>12:00</Text>
             </View>
         </TouchableOpacity>
     }

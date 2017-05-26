@@ -11,8 +11,10 @@ import {
     Button,
     Switch,
     TextInput,
-    ScrollView
+    ScrollView,
+    Dimensions
 } from 'react-native';
+const {width, height} = Dimensions.get('window');
 
 
 const data = {
@@ -27,18 +29,18 @@ const data = {
 
 const items = [
     {
-    title:'工作内容',
-    items: ['1、设备上架','2、加电测试']
-},{
-    title:'验收标准',
-    items: ['1、设备正常运行','2、加电测试']
-},{
-    title:'备注',
-    items: ['1、熟练使用英文操作系统','2、千万不要迟到']
-}]
+        title:'工作内容',
+        items: ['1、设备上架','2、加电测试']
+    },{
+        title:'验收标准',
+        items: ['1、设备正常运行','2、加电测试']
+    },{
+        title:'备注',
+        items: ['1、熟练使用英文操作系统','2、千万不要迟到']
+    }]
 
 
-class TakeOrderDetailHeader extends Component{
+class AssignDetailHeader extends Component{
     render(){
         let {type,title,addr,time,status,num,fee} = data
         let feestr = fee==null ?'' : '劳务费 '+fee
@@ -60,7 +62,7 @@ class TakeOrderDetailHeader extends Component{
     }
 }
 
-class TakeOrderDetailFooter extends Component{
+class AssignDetailFooter extends Component{
     render(){
         return <View style={[{backgroundColor:'#fff',paddingHorizontal:10,paddingVertical:10,alignItems:'center',justifyContent:'space-between'},styles.row]}>
             <Text style={{fontSize:10,backgroundColor:'#f5f5f5',padding:2}}>4人参与</Text>
@@ -77,7 +79,7 @@ class TakeOrderDetailFooter extends Component{
 
 
 
-class OrderDetailItem extends Component{
+class AssignItem extends Component{
     render(){
         let {title,items} = this.props.data
         return <View style={{padding:10,backgroundColor:'#fff'}}>
@@ -95,7 +97,7 @@ class OrderDetailItem extends Component{
 }
 
 
-export default class EngineerOrderDetail extends Component{
+export default class EngineerAssignDetail extends Component{
 
     static navigationOptions = {
         title: '任务单详情',
@@ -103,18 +105,25 @@ export default class EngineerOrderDetail extends Component{
     render(){
         return <View style={{backgroundColor:'#f5f5f5',justifyContent:'space-between',flex:1}}>
             <ScrollView>
-                <TakeOrderDetailHeader />
+                <AssignDetailHeader />
                 {
                     items.map((data,index)=>{
-                        return <OrderDetailItem data={data} key={index}/>
+                        return <AssignItem data={data} key={index}/>
                     })
                 }
-                <TakeOrderDetailFooter />
+                <AssignDetailFooter />
             </ScrollView>
-            <View style={{backgroundColor:'#4964ef'}}>
-                <Button title='抢单' color='#fff' onPress={()=>{
+            <View style={[{backgroundColor:'#f5f5f5',justifyContent:'space-around',paddingBottom:10},styles.row]}>
+                <View style={{backgroundColor:'#4964ef',width:width*0.4}}>
+                    <Button title='转派' color='#fff' onPress={()=>{
 
-                }}/>
+                    }}/>
+                </View>
+                <View style={{backgroundColor:'#333333',width:width*0.4}}>
+                    <Button style={{width:width*0.4}} title='接受' color='#fff' onPress={()=>{
+
+                    }}/>
+                </View>
             </View>
         </View>
     }
