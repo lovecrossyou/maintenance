@@ -39,12 +39,17 @@ export default class ItemCell extends Component{
                     </View>
                     <View style={{alignItems:'center',justifyContent:'center',paddingRight:10}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
-                            <Text style={styles.content}>{desc}</Text>
+                            <Text style={styles.content}></Text>
                             <Text style={styles.content}></Text>
                         </View>
                     </View>
                 </View>
-                <Image source={require('../../assets/com/right_arrow.png')} style={{width:7,height:14,marginRight:10}}/>
+                <View style={{flexDirection:'row'}}>
+                    <View style={{paddingHorizontal:10}}>
+                        <Text style={styles.content}>{desc}</Text>
+                    </View>
+                    <Image source={require('../../assets/com/right_arrow.png')} style={{width:7,height:14,marginRight:10}}/>
+                </View>
             </TouchableOpacity>
         </View>
     }

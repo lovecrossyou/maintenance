@@ -11,13 +11,14 @@ import {
     Button
 } from 'react-native';
 import ItemCell from '../component/itemcell'
+import SenderUserInfo from './senderuserinfo'
 
 const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2670750920,766573320&fm=23&gp=0.jpg'
 
-
 class Header extends Component{
     render(){
-        return <View style={[styles.row,{justifyContent:'space-between'},styles.bg,styles.borderBottom]}>
+        let {callback} = this.props
+        return <TouchableOpacity onPress={callback} style={[styles.row,{justifyContent:'space-between'},styles.bg,styles.borderBottom]}>
             <View style={[styles.row,styles.center,{padding:10}]}>
                 <Image source={{uri:imgUrl}} style={{width:40,height:40,borderRadius:20}}/>
                 <Text>王道</Text>
@@ -25,7 +26,7 @@ class Header extends Component{
             <View style={[styles.center,{padding:10}]}>
                 <Image source={require('../../assets/com/right_arrow.png')} style={{width:7,height:14}}/>
             </View>
-        </View>
+        </TouchableOpacity>
     }
 }
 
@@ -36,8 +37,11 @@ export default class Setting extends Component{
     };
 
     render(){
+        const { navigate } = this.props.navigation;
         return <View>
-            <Header />
+            <Header callback={()=>{
+                navigate('SenderUserInfo')
+            }}/>
             <ItemCell name="修改密码" />
             <ItemCell name="意见反馈" />
             <ItemCell name="当前版本" />
