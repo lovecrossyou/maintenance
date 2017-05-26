@@ -14,6 +14,8 @@ import {
     ScrollView,
     Dimensions
 } from 'react-native';
+import Toast from 'react-native-easy-toast';
+
 const {width, height} = Dimensions.get('window');
 
 
@@ -51,32 +53,20 @@ class AssignDetailHeader extends Component{
                     <Text>{title}</Text>
                 </View>
                 <View style={{paddingVertical:5,paddingHorizontal:10}}>
+                    <Text style={styles.text}>分派人：李刚</Text>
                     <Text style={styles.text}>任务单号：R20160922</Text>
-                    <Text style={styles.text}>竞标状态：竞标中</Text>
-                    <Text style={styles.text}>发布日期：{time} 12:05</Text>
-                    <Text style={styles.text}>服务日期：{time} 10:00到场</Text>
+                    <Text style={styles.text}>任务状态：进行中</Text>
+                    <Text style={styles.text}>指派日期：{time} 10:00</Text>
+                    <Text style={styles.text}>服务日期：{time} 10:00</Text>
+                    <Text style={styles.text}>申报公司：六安市北门加油站</Text>
+                    <Text style={styles.text}>申报人：安小姐</Text>
+                    <Text style={styles.text}>申报电话：159-0222-3389</Text>
                     <Text style={styles.text}>服务地点：{addr}</Text>
                 </View>
             </View>
         </View>
     }
 }
-
-class AssignDetailFooter extends Component{
-    render(){
-        return <View style={[{backgroundColor:'#fff',paddingHorizontal:10,paddingVertical:10,alignItems:'center',justifyContent:'space-between'},styles.row]}>
-            <Text style={{fontSize:10,backgroundColor:'#f5f5f5',padding:2}}>4人参与</Text>
-            <Text style={{color:'#4964ef'}}>我报价：</Text>
-            <TextInput keyboardType="number-pad" style={{width:60,height:30,fontSize:14}} placeholder='输入金额'/>
-            <Text style={{color:'#4964ef'}}>元</Text>
-            <View style={[styles.row,{alignItems:'center'}]}>
-                <Text>包含增值税发票</Text>
-                <Switch />
-            </View>
-        </View>
-    }
-}
-
 
 
 class AssignItem extends Component{
@@ -111,20 +101,20 @@ export default class EngineerAssignDetail extends Component{
                         return <AssignItem data={data} key={index}/>
                     })
                 }
-                <AssignDetailFooter />
             </ScrollView>
             <View style={[{backgroundColor:'#f5f5f5',justifyContent:'space-around',paddingBottom:10},styles.row]}>
                 <View style={{backgroundColor:'#4964ef',width:width*0.4}}>
                     <Button title='转派' color='#fff' onPress={()=>{
-
+                        this.refs.toast.show('转派')
                     }}/>
                 </View>
                 <View style={{backgroundColor:'#333333',width:width*0.4}}>
                     <Button style={{width:width*0.4}} title='接受' color='#fff' onPress={()=>{
-
+                        this.refs.toast.show('您已接受该任务，请合理安排时间');
                     }}/>
                 </View>
             </View>
+            <Toast ref="toast" position='center'/>
         </View>
     }
 }

@@ -14,6 +14,7 @@ import {
 import SenderRoot from '../sender/senderroot'
 import ManagerRoot from '../manager/managerroot'
 import EngineerRoot from '../engineer/engineerroot'
+import Toast from 'react-native-easy-toast';
 
 
 const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2670750920,766573320&fm=23&gp=0.jpg'
@@ -62,13 +63,22 @@ export default class Login extends Component{
                         onPress={()=>{
                             let username = this.state.username
                             if(username==1){
-                                navigate('SenderRoot',{title:'发单'})
+                                this.refs.toast.show('发活人角色');
+                                setTimeout(()=>{
+                                    navigate('SenderRoot',{title:'发单'})
+                                },1000)
                             }
                             else if(username=='2'){
-                                navigate('ManagerRoot',{title:'任务表'})
+                                this.refs.toast.show('项目经理角色');
+                                setTimeout(()=>{
+                                    navigate('ManagerRoot',{title:'任务表'})
+                                },1000)
                             }
                             else {
-                                navigate('EngineerRoot',{title:'派单'})
+                                this.refs.toast.show('工程师角色');
+                                setTimeout(()=>{
+                                    navigate('EngineerRoot',{title:'派单'})
+                                },1000)
                             }
                         }}/>
                 </View>
@@ -89,6 +99,7 @@ export default class Login extends Component{
                         navigate('Contact')
                     }}/>
             </View>
+            <Toast ref="toast" position='center'/>
         </View>
     }
 }
