@@ -15,7 +15,7 @@ import {
     Dimensions
 } from 'react-native';
 import Toast from 'react-native-easy-toast';
-
+import AssignList from './zhipailist'
 const {width, height} = Dimensions.get('window');
 
 
@@ -93,6 +93,7 @@ export default class EngineerAssignDetail extends Component{
         title: '任务单详情',
     };
     render(){
+        const { navigate } = this.props.navigation;
         return <View style={{backgroundColor:'#f5f5f5',justifyContent:'space-between',flex:1}}>
             <ScrollView>
                 <AssignDetailHeader />
@@ -105,7 +106,7 @@ export default class EngineerAssignDetail extends Component{
             <View style={[{backgroundColor:'#f5f5f5',justifyContent:'space-around',paddingBottom:10},styles.row]}>
                 <View style={{backgroundColor:'#4964ef',width:width*0.4}}>
                     <Button title='转派' color='#fff' onPress={()=>{
-                        this.refs.toast.show('转派')
+                        navigate('AssignList')
                     }}/>
                 </View>
                 <View style={{backgroundColor:'#333333',width:width*0.4}}>

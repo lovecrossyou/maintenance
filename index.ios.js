@@ -26,6 +26,7 @@ import ManagerRoot from './app/manager/managerroot'
 import EngineerRoot from './app/engineer/engineerroot'
 import EngineerOrderDetail from './app/engineer/engineerorderdetail'
 import EngineerAssignDetail from './app/engineer/zhipaidetail'
+import AssignList from './app/engineer/zhipailist'
 
 const SimpleApp = StackNavigator({
     Login: { screen: Login },
@@ -41,6 +42,7 @@ const SimpleApp = StackNavigator({
     EngineerRoot:{screen:EngineerRoot},
     EngineerOrderDetail:{screen:EngineerOrderDetail},
     EngineerAssignDetail:{screen:EngineerAssignDetail},
+    AssignList:{screen:AssignList},
 });
 
 AppRegistry.registerComponent('maintenance', () => SimpleApp);
