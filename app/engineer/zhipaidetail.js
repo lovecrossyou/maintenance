@@ -72,7 +72,7 @@ class AssignDetailHeader extends Component{
 class AssignItem extends Component{
     render(){
         let {title,items} = this.props.data
-        return <View style={{padding:10,backgroundColor:'#fff'}}>
+        return <View style={[{padding:10,backgroundColor:'#fff'},styles.borderBottom]}>
             <View>
                 <Text style={{fontSize:15,fontWeight:'400',paddingVertical:5}}>{title}</Text>
             </View>
